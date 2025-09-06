@@ -1,0 +1,17 @@
+Core Functions
+
+Add income
+Add expenses
+Set a monthly budget
+See remaining budget balance
+
+Simple Display
+
+List of recent transactions
+Total money in vs. money out
+Budget remaining for the month
+
+Basic Categories
+
+Essential (rent, groceries, bills)
+Non-essential (entertainment, shopping)
