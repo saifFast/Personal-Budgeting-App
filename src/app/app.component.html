@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Budgeting App</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.3/angular.min.js"></script>
+   
+</head>
+<body ng-app="budgetingApp" ng-controller="BudgetController">
+    <div class="container">
+        <h1>Personal Budgeting App</h1>
+
+        <!-- Summary Cards -->
+        <!-- <div class="summary-cards">
+            <div class="summary-card">
+                <div class="summary-title">Total Income</div>
+                <h3 class="summary-value income">${{getSummary().income | number:2}}</h3>
+            </div>
+            <div class="summary-card">
+                <div class="summary-title">Total Expenses</div>
+                <h3 class="summary-value expense">${{getSummary().expenses | number:2}}</h3>
+            </div>
+            <div class="summary-card">
+                <div class="summary-title">Balance</div>
+                <h3 class="summary-value balance">${{getSummary().balance | number:2}}</h3>
+            </div>
+        </div> -->
+
+        <!-- Search Section -->
+        <div class="search-section">
+            <div class="search-filters">
+                <div class="filter-group">
+                    <label for="monthFilter">Month</label>
+                    <select id="monthFilter" ng-model="searchFilters.month">
+                        <option value="">All Months</option>
+                        <option value="01">January</option>
+                        <option value="02">February</option>
+                        <option value="03">March</option>
+                        <option value="04">April</option>
+                        <option value="05">May</option>
+                        <option value="06">June</option>
+                        <option value="07">July</option>
+                        <option value="08">August</option>
+                        <option value="09">September</option>
+                        <option value="10">October</option>
+                        <option value="11">November</option>
+                        <option value="12">December</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="yearFilter">Year</label>
+                    <select id="yearFilter" ng-model="searchFilters.year">
+                        <option value="">All Years</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                        <option value="2020">2020</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <button class="search-btn" ng-click="searchTransactions()">
+                        🔍 Search
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Transactions Section -->
+        <div class="transactions-section">
+            <div class="transactions-header">
+                Transactions ({{filteredTransactions.length}} results)
+            </div>
+            
+            <div class="transaction-list" ng-if="filteredTransactions.length > 0">
+                <div class="transaction-item" ng-repeat="transaction in filteredTransactions">
+                    <div class="transaction-details">
+                        <div class="transaction-description">{{transaction.description}}</div>
+                        <div class="transaction-meta">
+                            <span>📅 {{transaction.date}}</span>
+                            <span class="transaction-category">{{transaction.category}}</span>
+                        </div>
+                    </div>
+                    <div class="transaction-amount" 
+                         ng-class="transaction.type === 'income' ? 'amount-positive' : 'amount-negative'">
+                        {{transaction.type === 'income' ? '+' : '-'}}${{transaction.amount}}
+                    </div>
+                </div>
+            </div>
+            
+            <div class="no-results" ng-if="filteredTransactions.length === 0">
+                <p>💸 No transactions found for the selected filters.</p>
+                <p>Try adjusting your search criteria or check back later!</p>
+            </div>
+        </div>
+    </div>
+
+  
+</body>
+</html>
