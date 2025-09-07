@@ -26,14 +26,6 @@ export class AppComponent {
       date: new Date('2024-09-01')
     },
     {
-      id: 2,
-      description: 'Grocery Shopping',
-      amount: 150.50,
-      type: 'expense',
-      category: 'Food',
-      date: new Date('2024-09-02')
-    },
-    {
       id: 3,
       description: 'Gas Bill',
       amount: 80.00,
